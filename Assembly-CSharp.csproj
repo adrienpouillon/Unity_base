@@ -61,17 +61,20 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\6000.3.21f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\GroundTag.cs" />
+    <Compile Include="Assets\Script\Clock.cs" />
+    <Compile Include="Assets\Script\LiquidUp.cs" />
     <Compile Include="Assets\Script\LifeBarre.cs" />
     <Compile Include="Assets\Script\LifeComponent.cs" />
-    <Compile Include="Assets\Script\HealthPlateformTag.cs" />
     <Compile Include="Assets\Script\MoveComponent.cs" />
+    <Compile Include="Assets\Script\DamageTouchTag.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Script\ColliderComponent.cs" />
+    <Compile Include="Assets\Script\HealthTouchTag.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
+    <None Include="Assets\Packages\KayKit_Adventurers_2.0_FREE\License.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_URP.cginc" />

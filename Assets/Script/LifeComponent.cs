@@ -4,10 +4,12 @@ using NaughtyAttributes;
 
 public class LifeComponent : MonoBehaviour
 {
+    [Header("Config PV")]
     [SerializeField] public int _startPv;
     [SerializeField] public int _maxPv;
     [SerializeField] public int _minPv;
 
+    [Header("Config Action")]
     [SerializeField] public int _health;
     [SerializeField] public int _damage;
     [SerializeField] public bool _deadCanDestroy;

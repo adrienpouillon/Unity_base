@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 public struct Lock
 {
     bool _beginLock;
@@ -27,8 +28,14 @@ public struct Lock
 
 public class ColliderComponent : MonoBehaviour
 {
+    [Header("Component required")]
     [SerializeField] LifeComponent _life;
     //[SerializeField] MoveComponent _move;
+    
+    [Header("Event Feedback")]
+    [SerializeField] UnityEvent OnDamageTouchTag;
+    [SerializeField] UnityEvent OnHealthTouchTag;
+
     //Lock _lockMove;
 
     void Reset()
@@ -48,6 +55,7 @@ public class ColliderComponent : MonoBehaviour
     {
         
     }
+
     void OnCollisionEnter(Collision other)
     {
         Debug.Log("Collision");
@@ -60,14 +68,16 @@ public class ColliderComponent : MonoBehaviour
         {
             _pv--;
         }*/
-        if (other.gameObject.TryGetComponent(out HealthPlateformTag healthPlateformTag))
+        if (other.gameObject.TryGetComponent(out HealthTouchTag healthTouchTag))
         {
             _life.DefaultHealth();
+            OnHealthTouchTag.Invoke();
         }
 
-        if (other.gameObject.TryGetComponent(out GroundTag groundTag))
+        if (other.gameObject.TryGetComponent(out DamageTouchTag damageTouchTag))
         {
             _life.DefaultDamage();
+            OnDamageTouchTag.Invoke();
         }
     }
 }

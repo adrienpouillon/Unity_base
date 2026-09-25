@@ -15,6 +15,8 @@ public class MoveComponent : MonoBehaviour
     [SerializeField] InputActionReference _jumpInput;
     [SerializeField] GameObject _foodPosition;
     [SerializeField] Camera _camera;
+    [SerializeField] GameObject _player;
+    [SerializeField] Animator _animator;
 
     bool _isGrounded;
     Vector3 _direction;
@@ -40,6 +42,7 @@ public class MoveComponent : MonoBehaviour
     void Start()
     {
         _moveInput.action.started += UpdateMoveInput;
+        _moveInput.action.performed += UpdateMoveInput;
         _moveInput.action.canceled += EndMoveInput;
     }
 
@@ -58,16 +61,19 @@ public class MoveComponent : MonoBehaviour
 
         if (_useForward)
         {
-            transform.Translate(transform.forward * (Time.deltaTime * _speed));
+            _player.transform.Translate(transform.forward * (Time.deltaTime * _speed));
         }
         else
         {
             var dir = (cameraForward * _direction.z) + (cameraRight * _direction.x);
-            transform.Translate(dir * (Time.deltaTime * _speed));
+            _player.transform.Translate(dir * (Time.deltaTime * _speed), Space.Self);
+
+            //bool isWalking = dir.magnitude > 0.1f;
+            //_animator.SetBool("isWalking", false);
         }
 
         // Rotation du personnage
-        transform.forward = cameraForward;
+        _player.transform.forward = cameraForward;
     }
 
     /*void FixedUpdate()
