@@ -8,21 +8,28 @@ public class LifeComponent : MonoBehaviour
     [SerializeField] public int _startPv;
     [SerializeField] public int _maxPv;
     [SerializeField] public int _minPv;
+    [SerializeField, ReadOnly] int _pv;
 
     [Header("Config Action")]
     [SerializeField] public int _health;
     [SerializeField] public int _damage;
     [SerializeField] public bool _deadCanDestroy;
 
+    [Header("Component Required")]
+
+
+    [Header("Component Optionnal")]
+    [SerializeField] public Animator _animator;
+
     public event Action<int> OnUpdateLife;
     public event Action<int> OnHealthAll;
     public event Action<int> OnHealthLittle;
     public event Action<int> OnDamageAll;
     public event Action<int> OnDamageLittle;
-    public event Action<int> OnDead;
+    public event Action OnDead;
 
 
-    [SerializeField, ReadOnly] int _pv;
+    
     public int CurrentPV
     {
         get { return _pv; }
@@ -63,7 +70,22 @@ public class LifeComponent : MonoBehaviour
     {
         if(_deadCanDestroy && IsDead())
         {
-            Destroy(gameObject);
+            OnDead.Invoke();
+            if (_animator!=null)
+            {
+                if (_animator.GetBool("IsDead"))
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    _animator.SetBool("IsDead", true);
+                }
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -102,12 +124,14 @@ public class LifeComponent : MonoBehaviour
         _pv = _minPv;
         OnUpdateLife?.Invoke(_pv);
         OnDamageAll?.Invoke(_pv);
+        _animator?.SetBool("IsTakeDamage", true);
     }
     public void DefaultDamage()
     {
         _pv -= _damage;
         OnUpdateLife?.Invoke(_pv);
         OnDamageLittle?.Invoke(_pv);
+        _animator?.SetBool("IsTakeDamage", true);
     }
 
     public void CustomDamage(int damage)
@@ -115,6 +139,7 @@ public class LifeComponent : MonoBehaviour
         _pv = damage;
         OnUpdateLife?.Invoke(_pv);
         OnDamageLittle?.Invoke(_pv);
+        _animator?.SetBool("IsTakeDamage", true);
     }
 
     public bool IsDead()

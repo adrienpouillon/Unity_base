@@ -49,10 +49,19 @@ public class MoveComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //_isGrounded = Physics.Raycast(_foodPosition.transform.position, Vector3.down, 1f);// , 10, QueryTriggerInteraction.Collide);
-        if(_jumpInput.action.WasPressedThisFrame())// && _isGrounded)
+        
+        if (_jumpInput.action.WasPressedThisFrame())// && _isGrounded)
         {
             _rb.AddForce(Vector3.up * _jumpForce);
+            _animator?.SetBool("IsJumping", true);
+        }
+        else
+        {
+            _isGrounded = Physics.Raycast(_foodPosition.transform.position, Vector3.down, 1f);// , 10, QueryTriggerInteraction.Collide);
+            if(_isGrounded)
+            {
+                _animator?.SetBool("IsJumping", false);
+            }
         }
 
         Vector3 cameraForward = _camera.transform.forward;
@@ -67,9 +76,6 @@ public class MoveComponent : MonoBehaviour
         {
             var dir = (cameraForward * _direction.z) + (cameraRight * _direction.x);
             _player.transform.Translate(dir * (Time.deltaTime * _speed), Space.Self);
-
-            //bool isWalking = dir.magnitude > 0.1f;
-            //_animator.SetBool("isWalking", false);
         }
 
         // Rotation du personnage
@@ -91,11 +97,13 @@ public class MoveComponent : MonoBehaviour
     {
         var inputDirection = obj.ReadValue<Vector2>();
         _direction = new Vector3(inputDirection.x, 0f, inputDirection.y);
+        _animator?.SetBool("IsWalking", true);
     }
 
     void EndMoveInput(InputAction.CallbackContext obj)
     {
         _direction = Vector3.zero;
+        _animator?.SetBool("IsWalking", false);
     }
 
 }
