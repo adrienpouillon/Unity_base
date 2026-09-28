@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 
 public class Routine : MonoBehaviour
 {
-    [SerializeField] float _delay;
+    /*[SerializeField] float _delay;
 
     CancellationTokenSource _cts;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,5 +50,5 @@ public class Routine : MonoBehaviour
     void OnDestroy()
     {
 
-    }
+    }*/
 }
