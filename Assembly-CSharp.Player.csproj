@@ -65,19 +65,21 @@
     <Compile Include="Assets\Script\LiquidUp.cs" />
     <Compile Include="Assets\Script\LifeBarre.cs" />
     <Compile Include="Assets\Script\LifeComponent.cs" />
+    <Compile Include="Assets\Script\TimelineIntro.cs" />
     <Compile Include="Assets\Script\MoveComponent.cs" />
+    <Compile Include="Assets\Script\Routine.cs" />
     <Compile Include="Assets\Script\DamageTouchTag.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Script\ColliderComponent.cs" />
     <Compile Include="Assets\Script\HealthTouchTag.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
-    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
+    <None Include="Assets\Packages\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
+    <None Include="Assets\Packages\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
     <None Include="Assets\Packages\KayKit_Adventurers_2.0_FREE\License.txt" />
-    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
-    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
-    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_URP.cginc" />
+    <None Include="Assets\Packages\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
+    <None Include="Assets\Packages\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
+    <None Include="Assets\Packages\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_URP.cginc" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -902,10 +904,6 @@
       <Project>{4B2B9583-C42F-BEC9-D0D8-F4E211C081E6}</Project>
       <Name>Unity.TextMeshPro.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="KinoBloom.Runtime.Player.csproj">
-      <Project>{B919A8C1-326E-0B00-4322-C97F0062F019}</Project>
-      <Name>KinoBloom.Runtime.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.AI.Navigation.Player.csproj">
       <Project>{03F4164B-3927-0F78-A65E-336AA14441BD}</Project>
       <Name>Unity.AI.Navigation.Player</Name>
@@ -913,10 +911,6 @@
     <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.Player.csproj">
       <Project>{71A03D96-AEDE-270E-C493-6206BDBDBBDB}</Project>
       <Name>Unity.RenderPipelines.Core.ShaderLibrary.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="CFXRRuntime.Player.csproj">
-      <Project>{4F9D17D5-BC21-7A9D-14BE-DAB8B54761B0}</Project>
-      <Name>CFXRRuntime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Player.csproj">
       <Project>{E7FBD19F-CCEC-5378-3F95-B2D970828753}</Project>
@@ -965,6 +959,14 @@
     <ProjectReference Include="Unity.VisualScripting.Flow.Player.csproj">
       <Project>{1308A571-16F4-04AC-E6D7-1B4104D3A708}</Project>
       <Name>Unity.VisualScripting.Flow.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="KinoBloom.Runtime.Player.csproj">
+      <Project>{B919A8C1-326E-0B00-4322-C97F0062F019}</Project>
+      <Name>KinoBloom.Runtime.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXRRuntime.Player.csproj">
+      <Project>{4F9D17D5-BC21-7A9D-14BE-DAB8B54761B0}</Project>
+      <Name>CFXRRuntime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Collections.Player.csproj">
       <Project>{9DF5960F-EBC8-5E1D-BE26-73A4999915D4}</Project>

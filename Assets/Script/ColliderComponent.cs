@@ -68,13 +68,15 @@ public class ColliderComponent : MonoBehaviour
         {
             _pv--;
         }*/
-        if (other.gameObject.TryGetComponent(out HealthTouchTag healthTouchTag))
+        HealthTouchTag component_health = other.gameObject.GetComponentInChildren<HealthTouchTag>();
+        if (component_health)
         {
             _life.DefaultHealth();
             OnHealthTouchTag.Invoke();
         }
 
-        if (other.gameObject.TryGetComponent(out DamageTouchTag damageTouchTag))
+        DamageTouchTag component_damage = other.gameObject.GetComponentInChildren<DamageTouchTag>();
+        if (component_damage)
         {
             _life.DefaultDamage();
             OnDamageTouchTag.Invoke();
